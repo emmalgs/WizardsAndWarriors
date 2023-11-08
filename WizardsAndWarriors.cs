@@ -40,10 +40,7 @@ class Wizard : Character
     {
     }
 
-    public override bool Vulnerable()
-    {
-        return PreparedSpell == false;
-    }
+    public override bool Vulnerable() => PreparedSpell == false;
 
     public override int DamagePoints(Character target)
     {
