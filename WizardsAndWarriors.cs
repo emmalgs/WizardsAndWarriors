@@ -2,9 +2,10 @@ using System;
 
 abstract class Character
 {
+    private readonly string CharacterType;
     protected Character(string characterType)
     {
-        throw new NotImplementedException("Please implement the Character() constructor");
+        CharacterType = characterType;
     }
 
     public abstract int DamagePoints(Character target);
@@ -16,13 +17,13 @@ abstract class Character
 
     public override string ToString()
     {
-        throw new NotImplementedException("Please implement the Character.ToString() method");
+        return $"Character is a {CharacterType}";
     }
 }
 
 class Warrior : Character
 {
-    public Warrior() : base("TODO")
+    public Warrior() : base("Warrior")
     {
     }
 
@@ -34,7 +35,7 @@ class Warrior : Character
 
 class Wizard : Character
 {
-    public Wizard() : base("TODO")
+    public Wizard() : base("Wizard")
     {
     }
 
