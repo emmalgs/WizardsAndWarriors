@@ -12,7 +12,7 @@ abstract class Character
 
     public virtual bool Vulnerable()
     {
-        throw new NotImplementedException("Please implement the Character.Vulnerable() method");
+        return false;
     }
 
     public override string ToString()
@@ -29,23 +29,43 @@ class Warrior : Character
 
     public override int DamagePoints(Character target)
     {
-        throw new NotImplementedException("Please implement the Warrior.DamagePoints() method");
+        if (target.Vulnerable())
+        {
+            return 10;
+        }
+        else
+        {
+            return 6;
+        }
     }
 }
 
 class Wizard : Character
 {
+   private bool PreparedSpell = false;
     public Wizard() : base("Wizard")
     {
     }
 
+    public override bool Vulnerable()
+    {
+        return PreparedSpell == false;
+    }
+
     public override int DamagePoints(Character target)
     {
-        throw new NotImplementedException("Please implement the Wizard.DamagePoints() method");
+        if (PreparedSpell)
+        {
+            return 12;
+        }
+        else
+        {
+            return 3;
+        }
     }
 
     public void PrepareSpell()
     {
-        throw new NotImplementedException("Please implement the Wizard.PrepareSpell() method");
+        PreparedSpell = true;
     }
 }
