@@ -11,10 +11,7 @@ abstract class Character
     public abstract int DamagePoints(Character target);
 
     public virtual bool Vulnerable() => false;
-    public override string ToString()
-    {
-        return $"Character is a {CharacterType}";
-    }
+    public override string ToString() => $"Character is a {CharacterType}";
 }
 
 class Warrior : Character
